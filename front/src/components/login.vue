@@ -37,13 +37,16 @@
 <script setup lang="ts">
 import { ElMessage } from "element-plus";
 import { reactive, ref } from "vue";
+import { useRouter } from "vue-router";
 import api from "../api/login.js";
+import { useUserInfoStore } from "../stores/user";
 const labelPosition = ref("top");
-
+const router: any = useRouter();
 const formLabelAlign = reactive({
   username: "",
   password: "",
 });
+const store = useUserInfoStore()
 const handle_login = () => {
   if (formLabelAlign.username == "" || formLabelAlign.password == "") {
     ElMessage({
@@ -55,9 +58,15 @@ const handle_login = () => {
       console.log(res);
       if (res.code == "20001") {
         localStorage.setItem("token", res.data.token);
+        store.userName = res.data.user.uname
+        store.firstName = res.data.user.uname.charAt(0)
+        router.push("/");
       }
       ElMessage({
-        message: res.code == "20001" ?'您好,'+res.data.user.uname+'!'+res.msg:res.msg,
+        message:
+          res.code == "20001"
+            ? "您好," + store.userName + "!" + res.msg
+            : res.msg,
         type: res.code == "20001" ? "success" : "error",
       });
     });

@@ -1,0 +1,58 @@
+{
+  "id": "4175661",
+  "name": "图书馆管理系统",
+  "font_family": "iconfont",
+  "css_prefix_text": "icon-",
+  "description": "",
+  "glyphs": [
+    {
+      "icon_id": "2129721",
+      "name": "图书期刊",
+      "font_class": "tushuqikan",
+      "unicode": "e618",
+      "unicode_decimal": 58904
+    },
+    {
+      "icon_id": "6866628",
+      "name": "用户管理",
+      "font_class": "yonghuguanli",
+      "unicode": "e600",
+      "unicode_decimal": 58880
+    },
+    {
+      "icon_id": "9749391",
+      "name": "我的借阅",
+      "font_class": "book-information-i-borrow",
+      "unicode": "e605",
+      "unicode_decimal": 58885
+    },
+    {
+      "icon_id": "10273324",
+      "name": "个人信息",
+      "font_class": "gerenxinxi",
+      "unicode": "e603",
+      "unicode_decimal": 58883
+    },
+    {
+      "icon_id": "33971712",
+      "name": "借阅记录",
+      "font_class": "jieyuejilu",
+      "unicode": "e627",
+      "unicode_decimal": 58919
+    },
+    {
+      "icon_id": "5650911",
+      "name": "全屏",
+      "font_class": "quanping",
+      "unicode": "e62f",
+      "unicode_decimal": 58927
+    },
+    {
+      "icon_id": "12097695",
+      "name": "缩小",
+      "font_class": "suoxiao",
+      "unicode": "e67e",
+      "unicode_decimal": 59006
+    }
+  ]
+}
