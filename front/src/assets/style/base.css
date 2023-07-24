@@ -19,6 +19,13 @@
   --vt-c-text-light-2: rgba(60, 60, 60, 0.66);
   --vt-c-text-dark-1: var(--vt-c-white);
   --vt-c-text-dark-2: rgba(235, 235, 235, 0.64);
+
+  --el-color-primary:  rgba(79, 154, 138, 1);
+  --el-color-primary-light-3: rgba(187, 216, 216, 1);
+  --el-color-primary-dark-2:  rgba(79, 154, 138, 0.8);
+  --el-color-primary-light-9: rgba(187, 216, 216, 0.5);
+  --el-color-primary-light-7: rgba(187, 216, 216, 0.7);
+  --el-color-primary-light-5: rgba(187, 216, 216, 0.9);
 }
 
 /* semantic color variables for this project */
@@ -84,4 +91,21 @@ body {
 .slide-fade-leave-to {
   transform: translateX(20px);
   opacity: 0;
+}
+
+.el-button--primary {
+  --el-button-text-color: var(--el-color-white);
+  --el-button-bg-color: var(--el-color-primary);
+  --el-button-border-color: var(--el-color-primary);
+  --el-button-outline-color: var(--el-color-primary-light-5);
+  --el-button-active-color: var(--el-color-primary-dark-2);
+  --el-button-hover-text-color: var(--el-color-white);
+  --el-button-hover-link-text-color: var(--el-color-primary-light-5);
+  --el-button-hover-bg-color: var(--el-color-primary-light-3);
+  --el-button-hover-border-color: var(--el-color-primary-light-3);
+  --el-button-active-bg-color: var(--el-color-primary-dark-2);
+  --el-button-active-border-color: var(--el-color-primary-dark-2);
+  --el-button-disabled-text-color: var(--el-color-white);
+  --el-button-disabled-bg-color: var(--el-color-primary-light-5);
+  --el-button-disabled-border-color: var(--el-color-primary-light-5);
 }

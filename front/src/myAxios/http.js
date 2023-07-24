@@ -1,6 +1,6 @@
 import axios from 'axios';
 import { ElMessage } from 'element-plus';
-import router from '../router';
+import { router } from '../router';
 const service = axios.create({});
 // 添加请求拦截器
 service.interceptors.request.use(

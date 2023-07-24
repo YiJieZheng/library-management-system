@@ -46,7 +46,7 @@ const formLabelAlign = reactive({
   username: "",
   password: "",
 });
-const store = useUserInfoStore()
+const store = useUserInfoStore();
 const handle_login = () => {
   if (formLabelAlign.username == "" || formLabelAlign.password == "") {
     ElMessage({
@@ -54,13 +54,14 @@ const handle_login = () => {
       type: "warning",
     });
   } else {
-    api.login(formLabelAlign).then((res: any) => {
-      console.log(res);
+    api.login(formLabelAlign).then(async (res: any) => {
       if (res.code == "20001") {
         localStorage.setItem("token", res.data.token);
-        store.userName = res.data.user.uname
-        store.firstName = res.data.user.uname.charAt(0)
-        router.push("/");
+        localStorage.setItem("uidentity", res.data.user.uidentity);
+        store.userName = res.data.user.uname;
+        store.firstName = res.data.user.uname.charAt(0);
+        store.uidentity = res.data.user.uidentity;
+        router.push("/main");
       }
       ElMessage({
         message:
@@ -104,6 +105,7 @@ const handle_login = () => {
   background-color: #fffffff5;
   border-radius: 10px;
   width: 500px;
+  color: #000;
   height: 400px;
   padding: 20px 50px;
   p {
