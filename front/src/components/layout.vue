@@ -114,7 +114,7 @@ onMounted(() => {
   width: 100%;
   color: #fff;
   height: 100%;
-  background-color: rgba(187, 216, 216, 1);
+  // background-color: rgba(187, 216, 216, 1);
   .header {
     height: 50px;
     width: calc(100% - 20px);
@@ -183,7 +183,7 @@ onMounted(() => {
     top: 60px;
     left: 10px;
     box-shadow: #64646489 0px 10px 10px;
-    background-color: rgba(187, 216, 216, 0);
+    background-color: rgba(73, 204, 144, 0.1);
     border-radius: 8px;
     .el-menu {
       border-right: none;
@@ -221,7 +221,8 @@ onMounted(() => {
     top: 60px;
     left: 230px;
     box-shadow: #64646489 0px 15px 15px 5px;
-    background-color: rgba(187, 216, 216, 0);
+    // background-color: rgba(187, 216, 216, 0);
+    background-color: rgba(73, 204, 144, 0.1);
     border-radius: 8px;
   }
 }

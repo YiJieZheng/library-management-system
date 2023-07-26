@@ -9,5 +9,5 @@
 </template>
 
 <style scoped>
-
+@import url("../src/assets/style/base.css");
 </style>

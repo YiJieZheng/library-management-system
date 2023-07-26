@@ -20,13 +20,18 @@
   --vt-c-text-dark-1: var(--vt-c-white);
   --vt-c-text-dark-2: rgba(235, 235, 235, 0.64);
 
-  --el-color-primary:  rgba(79, 154, 138, 1);
+  --el-color-primary: rgba(79, 154, 138, 1);
   --el-color-primary-light-3: rgba(187, 216, 216, 1);
-  --el-color-primary-dark-2:  rgba(79, 154, 138, 0.8);
+  --el-color-primary-dark-2: rgba(79, 154, 138, 0.8);
   --el-color-primary-light-9: rgba(187, 216, 216, 0.5);
   --el-color-primary-light-7: rgba(187, 216, 216, 0.7);
   --el-color-primary-light-5: rgba(187, 216, 216, 0.9);
+  --el-fill-color-blank: #ffffff00;
+  --el-border-color-lighter: #ebeef500;
+  --el-fill-color-light: rgba(79, 154, 138, 0.5);
+  --el-bg-color: #ffffff00;
 }
+
 
 /* semantic color variables for this project */
 :root {
@@ -78,6 +83,7 @@ body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
+
 /* 过度动画 */
 .slide-fade-enter-active {
   transition: all 0.8s ease-out;

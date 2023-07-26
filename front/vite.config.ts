@@ -17,7 +17,7 @@ export default defineConfig({
     hmr: true, //开启热更新
     proxy: {
       "/api": {
-        target: 'http://localhost:8080/', 
+        target: 'http://localhost:8090/', 
         changeOrigin: true,
         rewrite: (path) => path.replace(/^\/api/, ""),
       },
