@@ -2,6 +2,7 @@
 import { createRouter, createWebHistory, type RouteRecordRaw } from 'vue-router';
 import layout from '../components/layout.vue';
 import login from '../components/login.vue';
+import register from '../components/register.vue';
 import book_collection_software from '../views/book_collection_software.vue';
 import index from '../views/index.vue';
 import loan_record from '../views/loan_record.vue';
@@ -17,6 +18,14 @@ const constantRoutes: RouteRecordRaw[] = [
       hidden: true
     },
     component: login
+  },
+  {
+    path: '/register',
+    name: 'register',
+    meta: {
+      hidden: true
+    },
+    component: register
   },
   {
     path: '/',

@@ -23,13 +23,16 @@
   --el-color-primary: rgba(79, 154, 138, 1);
   --el-color-primary-light-3: rgba(187, 216, 216, 1);
   --el-color-primary-dark-2: rgba(79, 154, 138, 0.8);
+  --el-border-color:  rgba(79, 154, 138, 0.8);
   --el-color-primary-light-9: rgba(187, 216, 216, 0.5);
   --el-color-primary-light-7: rgba(187, 216, 216, 0.7);
   --el-color-primary-light-5: rgba(187, 216, 216, 0.9);
-  --el-fill-color-blank: #ffffff00;
+  --el-fill-color-blank: rgb(215, 231, 222,0);
   --el-border-color-lighter: #ebeef500;
-  --el-fill-color-light: rgba(79, 154, 138, 0.5);
-  --el-bg-color: #ffffff00;
+  --el-fill-color-light: rgba(136, 182, 169, 1);
+  --el-bg-color: rgb(215, 231, 222);
+  --el-text-color-placeholder: #86888e;
+  --el-text-color-regular:#000000ab;
 }
 
 

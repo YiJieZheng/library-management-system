@@ -22,26 +22,28 @@
         退出
       </div>
     </el-header>
-    <div class="left_menu">
-      <el-scrollbar>
-        <el-menu :default-active="activeIndex">
-          <el-menu-item
-            v-for="(menu, i) in store.menuList"
-            :key="menu.path"
-            :index="`${i}`"
-            @click="handle_router(menu, i)"
-            ><span :class="`iconfont ${menu.meta?.icon}`"></span
-            >{{ menu.meta?.title }}</el-menu-item
-          >
-        </el-menu>
-      </el-scrollbar>
-    </div>
-    <div class="main">
-      <router-view v-slot="{ Component }">
-        <transition name="slide-fade">
-          <component :is="Component" />
-        </transition>
-      </router-view>
+    <div class="bottom">
+      <div class="left_menu">
+        <el-scrollbar>
+          <el-menu :default-active="activeIndex">
+            <el-menu-item
+              v-for="(menu, i) in store.menuList"
+              :key="menu.path"
+              :index="`${i}`"
+              @click="handle_router(menu, i)"
+              ><span :class="`iconfont ${menu.meta?.icon}`"></span
+              >{{ menu.meta?.title }}</el-menu-item
+            >
+          </el-menu>
+        </el-scrollbar>
+      </div>
+      <div class="main">
+        <router-view v-slot="{ Component }">
+          <transition name="slide-fade">
+            <component :is="Component" />
+          </transition>
+        </router-view>
+      </div>
     </div>
   </div>
 </template>
@@ -114,17 +116,16 @@ onMounted(() => {
   width: 100%;
   color: #fff;
   height: 100%;
-  // background-color: rgba(187, 216, 216, 1);
+  background-color: var(--el-color-primary-light-3);
   .header {
     height: 50px;
-    width: calc(100% - 20px);
-    margin-left: 10px;
-    background-color: rgba(79, 154, 138, 1);
-    border-bottom: #000;
-    border-bottom-right-radius: 8px;
-    border-bottom-left-radius: 8px;
+    z-index: 10;
+    // background: transparent;
+    background-color: var(--el-color-primary);
+    box-shadow: inset 1px 1px 6px rgba(255, 255, 255, 0.2),
+      2px 2px 15px rgba(0, 0, 0, 0.3);
+    backdrop-filter: blur(20px);
     position: relative;
-    box-shadow: #64646489 0px 5px 10px;
     p {
       font-size: 34px;
       font-weight: bold;
@@ -132,6 +133,8 @@ onMounted(() => {
       position: absolute;
       left: 50%;
       transform: translate(-50%);
+      text-shadow: 1px 1px 2px #ddd, 2px 2px 2px #bbb, 3px 3px 2px #777,
+        4px 4px 2px #555, 5px 5px 2px #333, 6px 6px 2px #111;
     }
     .userInfo {
       display: flex;
@@ -139,6 +142,7 @@ onMounted(() => {
       position: absolute;
       bottom: 0;
       left: 10px;
+
       .head_portrait {
         margin-right: 10px;
         width: 30px;
@@ -176,54 +180,64 @@ onMounted(() => {
       }
     }
   }
-  .left_menu {
-    width: 200px;
-    height: calc(100% - 70px);
+  .bottom {
+    width: 100%;
+    height: calc(100% - 50px);
     position: absolute;
-    top: 60px;
-    left: 10px;
-    box-shadow: #64646489 0px 10px 10px;
-    background-color: rgba(73, 204, 144, 0.1);
-    border-radius: 8px;
-    .el-menu {
-      border-right: none;
-      border-radius: 8px;
-      background-color: rgba(187, 216, 216, 0);
-    }
-    .el-menu-item {
-      color: #353535;
-      span {
-        display: inline-block;
-        margin-right: 10px;
+    top: 50px;
+    background-image: linear-gradient(
+      to bottom right,
+      rgba(79, 154, 138, 0.8),
+      rgb(255, 255, 255)
+    );
+    .left_menu {
+      width: 200px;
+      height: 100%;
+      position: absolute;
+      // top: 50px;
+      border-right: 1px solid #ffffff74;
+      background: transparent;
+
+      backdrop-filter: blur(20px);
+      .el-menu {
+        border-right: none;
+        border-radius: 8px;
+        background-color: rgba(187, 216, 216, 0);
+      }
+      .el-menu-item {
+        color: #353535;
+        span {
+          display: inline-block;
+          margin-right: 10px;
+        }
+      }
+      .el-menu-item:hover {
+        width: 100%;
+        background-color: #4f9a8a;
+        font-weight: bold;
+        color: #ffc15e;
+        transition: all 0.8s;
+      }
+      .el-menu-item.is-active {
+        width: 100%;
+        transition: all 0.8s;
+        background-color: #4f9a8a;
+        // border-top-right-radius: 80%;
+        // border-bottom-right-radius: 20%;
+        font-weight: bold;
+        color: #ffc15e;
       }
     }
-    .el-menu-item:hover {
-      width: 100%;
-      background-color: #4f9a8a;
-      font-weight: bold;
-      color: #ffc15e;
-      transition: all 0.8s;
+    .main {
+      width: calc(100% - 200px);
+      height: 100%;
+      position: absolute;
+      // top: 50px;
+      left: 200px;
+      background: transparent;
+      backdrop-filter: blur(20px);
+      padding: 20px;
     }
-    .el-menu-item.is-active {
-      width: 100%;
-      transition: all 0.8s;
-      background-color: #4f9a8a;
-      // border-top-right-radius: 80%;
-      // border-bottom-right-radius: 20%;
-      font-weight: bold;
-      color: #ffc15e;
-    }
-  }
-  .main {
-    width: calc(100% - 240px);
-    height: calc(100% - 70px);
-    position: absolute;
-    top: 60px;
-    left: 230px;
-    box-shadow: #64646489 0px 15px 15px 5px;
-    // background-color: rgba(187, 216, 216, 0);
-    background-color: rgba(73, 204, 144, 0.1);
-    border-radius: 8px;
   }
 }
 </style>

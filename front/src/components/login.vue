@@ -27,7 +27,7 @@
         >
         <div class="register">
           <span> 还没有账号吗？ </span>
-          <span class="blue_text">快来注册吧</span>
+          <span class="blue_text" @click="toRegister">快来注册吧</span>
         </div>
       </div>
     </div>
@@ -46,7 +46,7 @@ const formLabelAlign = reactive({
   username: "",
   password: "",
 });
-const store = useUserInfoStore();
+const userStore = useUserInfoStore();
 const handle_login = () => {
   if (formLabelAlign.username == "" || formLabelAlign.password == "") {
     ElMessage({
@@ -58,21 +58,25 @@ const handle_login = () => {
       if (res.code == "20001") {
         localStorage.setItem("token", res.data.token);
         localStorage.setItem("uidentity", res.data.user.uidentity);
-        store.userName = res.data.user.uname;
-        store.firstName = res.data.user.uname.charAt(0);
-        store.uidentity = res.data.user.uidentity;
+        userStore.userName = res.data.user.uname;
+        userStore.firstName = res.data.user.uname.charAt(0);
+        userStore.uidentity = res.data.user.uidentity;
+        userStore.uid = res.data.user.uid
         router.push("/main");
       }
       ElMessage({
         message:
           res.code == "20001"
-            ? "您好," + store.userName + "!" + res.msg
+            ? "您好," + userStore.userName + "!" + res.msg
             : res.msg,
         type: res.code == "20001" ? "success" : "error",
       });
     });
   }
 };
+const toRegister = ()=>{
+  router.push("/register");
+}
 </script>
 
 <style scoped lang="less">
@@ -102,10 +106,12 @@ const handle_login = () => {
   background-color: #00000073;
 }
 .login_info {
-  background-color: #fffffff5;
+  // background-color: #fffffff5;
+  backdrop-filter: blur(5px);
+  box-shadow: inset 1px 1px 6px rgba(255,255,255,0.5),2px 2px 15px rgba(0,0,0,0.8);
   border-radius: 10px;
   width: 500px;
-  color: #000;
+  color: #fff;
   height: 400px;
   padding: 20px 50px;
   p {
@@ -113,6 +119,11 @@ const handle_login = () => {
     font-size: 30px;
     font-weight: bold;
     text-align: center;
+  }
+  :deep(.el-input__inner){
+    background:transparent;
+    outline: none;
+    color:#fff
   }
 }
 .login_btn {
